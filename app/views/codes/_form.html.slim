@@ -1,0 +1,7 @@
+- url = code.id.nil? ? distribution_codes_path(code.distribution) : distribution_codes_path(code.distribution, code)
+
+= simple_form_for(code, url: url) do |f|
+  = f.input :name
+  = f.input :description
+  = f.submit class: 'btn btn-primary'
+  = link_to 'Back', [code.distribution], class: 'btn btn-secondary ml-4'

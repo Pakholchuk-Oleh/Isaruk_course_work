@@ -1,0 +1,56 @@
+.container
+  .row
+    .col-9
+      h1 = @distribution.name
+    .col-3.text-right
+      = link_to 'Back', root_path, class: 'btn btn-secondary mr-3'
+      = link_to 'Edit', [:edit, @distribution], class: 'btn btn-primary'
+      = link_to 'Destroy', [@distribution], class: 'btn btn-danger ml-3', method: :delete
+
+  hr.my-5
+
+  h3 Commands
+  table.table.table--white.thead-dark.table-striped.table-bordered.table-hover
+    caption = "List of #{@distribution.name}'s commands"
+    thead
+      tr
+        th scope="col" #
+        th scope="col" Name
+        th scope="col" Description
+        th.text-right.pr-4 scope="col" = link_to [:new, @distribution, :code] do
+          = icon 'fas', 'plus'
+    tbody
+      - @distribution.codes.each do |code|
+        tr
+          td scope="row" = code.id
+          td scope="row" = code.name
+          td scope="row" = code.description
+          td.text-right.pr-4 scope="row"
+            = link_to [:edit, @distribution, code], class: 'mr-3' do
+              = icon('fas', 'pen')
+            = link_to [@distribution, code], method: :delete do
+              = icon('fas', 'trash')
+
+  hr.my-5
+
+  h3 Category
+  table.table.table--white.thead-dark.table-striped.table-bordered.table-hover
+    caption = "List of #{@distribution.name}'s Category"
+    thead
+      tr
+        th scope="col" #
+        th scope="col" Name
+        th scope="col" Description
+        th.text-right.pr-4 scope="col" = link_to [:new, @distribution, :category] do
+          = icon 'fas', 'plus'
+    tbody
+      - @distribution.categories.each do |category|
+        tr
+          td scope="row" = category.id
+          td scope="row" = category.name
+          td scope="row" = category.description
+          td.text-right.pr-4 scope="row"
+            = link_to [:edit, @distribution, category], class: 'mr-3' do
+              = icon('fas', 'pen')
+            = link_to [@distribution, category], method: :delete do
+              = icon('fas', 'trash')
