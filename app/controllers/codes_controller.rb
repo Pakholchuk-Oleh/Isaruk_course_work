@@ -30,7 +30,7 @@ class CodesController < ApplicationController
   def destroy
     @code.destroy
 
-    redirect_to @code
+    redirect_to @distribution
   end
 
   private

@@ -1,4 +1,4 @@
-- url = code.id.nil? ? distribution_codes_path(code.distribution) : distribution_codes_path(code.distribution, code)
+- url = code.id.nil? ? distribution_codes_path(code.distribution) : distribution_code_path(code.distribution, code)
 
 = simple_form_for(code, url: url) do |f|
   = f.input :name

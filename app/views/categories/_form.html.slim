@@ -1,4 +1,4 @@
-- url = category.id.nil? ? distribution_categories_path(category.distribution) : distribution_categories_path(category.distribution, category)
+- url = category.id.nil? ? distribution_categories_path(category.distribution) : distribution_category_path(category.distribution, category)
 
 = simple_form_for(category, url: url) do |f|
   = f.input :name
